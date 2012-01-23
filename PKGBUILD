@@ -4,8 +4,8 @@
 # Contributor: Thomas Baechler <thomas@archlinux.org>
 
 ### PATCH AND BUILD OPTIONS
-_makenconfig="n"	# tweak kernel options prior to a build via nconfig
-_localmodcfg="n"	# compile ONLY probed modules
+_makenconfig="y"	# tweak kernel options prior to a build via nconfig
+_localmodcfg="y"	# compile ONLY probed modules
 _use_current="n"	# use the current kernel's .config file
 _BFQ_enable_="n"	# enable BFQ as the default I/O scheduler
 
@@ -54,8 +54,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.tar.xz"
 sha256sums=('dd96ed02b53fb5d57762e4b1f573460909de472ca588f81ec6660e4a172e7ba7'
             '20f633517dc186157618762338a05927f539dd7eba85a6c0a02635d961637ec0'
             '81aa6ee7b19b70a01f751bd26b79252d43457e3fda57bd35e125b2a20a7115cd'
-            '649e5fdded58765672d2d67b76c505ae99cc136bdaa3151e3e06380f1cbca2f8'
-            '4d552c3061cf4c881ae1ca70b8bd922c98d4f01860eb68f63820f3bb0c849847'
+            '50c2a787acaeccb48d84e4325b325b24942b5d525fa64b266752910cbb197865'
+            'a33f764cc88f9f6e97e8e4fea2f5b3776e5c546a575292d1e911fde21183291b'
             'b9d79ca33b0b51ff4f6976b7cd6dbb0b624ebf4fbf440222217f8ffc50445de4'
             '9ccadbe3eb30bb283af3eb869c3a4bdb764628854811cc616a2e02e9ef398705'
             '177f1d6a03a1d5e7a78e8687f223d0a675c43430b9e5dd09e3a038a8b7d2da30'
@@ -176,12 +176,12 @@ build() {
 	make ${MAKEFLAGS} bzImage modules
 }
 
-package_linux-ck() {
+package_linux-ck-systemtap() {
 _Kpkgdesc='Linux Kernel and modules with the ck1 patchset featuring Brain Fuck Scheduler v0.416.'
 pkgdesc="${_Kpkgdesc}"
 depends=('coreutils' 'linux-firmware' 'module-init-tools>=3.16' 'mkinitcpio>=0.7')
 optdepends=('crda: to set the correct wireless channels of your country' 'lirc-ck: Linux Infrared Remote Control kernel modules for linux-ck' 'nvidia-ck: nVidia drivers for linux-ck' 'nvidia-beta-ck: nVidia beta drivers for linux-ck' 'modprobed_db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
-provides=("linux-ck=${pkgver}")
+provides=("linux-ck-systemtap=${pkgver}")
 conflicts=('kernel26-ck')
 replaces=('kernel26-ck')
 backup=("etc/mkinitcpio.d/linux-ck.preset")
@@ -229,10 +229,10 @@ mkdir -p "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:ck}"
 echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:ck}/version"
 }
 
-package_linux-ck-headers() {
-_Hpkgdesc='Header files and scripts to build modules for linux-ck.'
+package_linux-ck-systemtap-headers() {
+_Hpkgdesc='Header files and scripts to build modules for linux-ck-systemtap.'
 pkgdesc="${_Hpkgdesc}"
-provides=("linux-ck-headers=${pkgver}")
+provides=("linux-ck-systemtap-headers=${pkgver}")
 conflicts=('kernel26-ck-headers')
 replaces=('kernel26-ck-headers')
 #groups=('ck-generic')
