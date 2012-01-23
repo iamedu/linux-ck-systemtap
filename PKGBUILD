@@ -4,8 +4,8 @@
 # Contributor: Thomas Baechler <thomas@archlinux.org>
 
 ### PATCH AND BUILD OPTIONS
-_makenconfig="y"	# tweak kernel options prior to a build via nconfig
-_localmodcfg="y"	# compile ONLY probed modules
+_makenconfig="n"	# tweak kernel options prior to a build via nconfig
+_localmodcfg="n"	# compile ONLY probed modules
 _use_current="n"	# use the current kernel's .config file
 _BFQ_enable_="n"	# enable BFQ as the default I/O scheduler
 
@@ -181,9 +181,9 @@ _Kpkgdesc='Linux Kernel and modules with the ck1 patchset featuring Brain Fuck S
 pkgdesc="${_Kpkgdesc}"
 depends=('coreutils' 'linux-firmware' 'module-init-tools>=3.16' 'mkinitcpio>=0.7')
 optdepends=('crda: to set the correct wireless channels of your country' 'lirc-ck: Linux Infrared Remote Control kernel modules for linux-ck' 'nvidia-ck: nVidia drivers for linux-ck' 'nvidia-beta-ck: nVidia beta drivers for linux-ck' 'modprobed_db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
-provides=("linux-ck-systemtap=${pkgver}")
-conflicts=('kernel26-ck')
-replaces=('kernel26-ck')
+provides=("linux-ck-systemtap=${pkgver}" "linux-ck=${pkgver}")
+conflicts=('kernel26-ck' 'linux-ck')
+replaces=('kernel26-ck' 'linux-ck')
 backup=("etc/mkinitcpio.d/linux-ck.preset")
 install=linux-ck.install
 #groups=('ck-generic')
@@ -232,9 +232,9 @@ echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernel
 package_linux-ck-systemtap-headers() {
 _Hpkgdesc='Header files and scripts to build modules for linux-ck-systemtap.'
 pkgdesc="${_Hpkgdesc}"
-provides=("linux-ck-systemtap-headers=${pkgver}")
-conflicts=('kernel26-ck-headers')
-replaces=('kernel26-ck-headers')
+provides=("linux-ck-systemtap-headers=${pkgver}" "linux-ck-headers=${pkgver}")
+conflicts=('kernel26-ck-headers' 'linux-ck-headers')
+replaces=('kernel26-ck-headers' 'linux-ck-headers')
 #groups=('ck-generic')
 
 mkdir -p "${pkgdir}/lib/modules/${_kernver}"
