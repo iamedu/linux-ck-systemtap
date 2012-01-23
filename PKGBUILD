@@ -10,6 +10,14 @@ _use_current="n"	# use the current kernel's .config file
 _BFQ_enable_="n"	# enable BFQ as the default I/O scheduler
 
 ### DOCS
+# READ THIS BEFORE INSTALLING!!!!
+# To build the kernel with debuginfo you need quite a bit of space, my build directory is about 3.6 GB
+# the kernel also ends up as quite a big kernel so I recommend doing two things:
+# 
+# Enabling localmodcfg and if you use yaourt use the --tmp flag or you could end up with
+# your /tmp partition full ...
+# That's it if you find any bug email it to me (iamedu)
+#
 # DETAILS FOR _localmodcfg="y"
 # As of mainline 2.6.32, running with this option will only build the modules that you currently have
 # probed in your system VASTLY reducing the number of modules built and the build time to do it.
