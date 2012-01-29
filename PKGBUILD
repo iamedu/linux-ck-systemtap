@@ -42,7 +42,7 @@ pkgname=linux-ck-systemtap
 true && pkgname=(linux-ck-systemtap linux-ck-systemtap-headers)
 _kernelname=-ck
 _basekernel=3.2
-pkgver=${_basekernel}.1
+pkgver=${_basekernel}.2
 pkgrel=3
 arch=('i686' 'x86_64')
 url="http://iamedu.wordpress.com/2012/01/23/arch-linux-and-systemtap/"
@@ -52,7 +52,7 @@ _ckpatchversion=1
 _ckpatchname="patch-${_basekernel}-ck${_ckpatchversion}"
 _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.2.0-v3r2"
 source=("http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.tar.xz"
-"http://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.gz"
+"http://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
 "http://ck.kolivas.org/patches/3.0/3.2/${_basekernel}-ck${_ckpatchversion}/${_ckpatchname}.bz2"
 'config' 'config.x86_64' 'change-default-console-loglevel.patch' 'i915-fix-ghost-tv-output.patch'
 'i915-gpu-finish.patch' 'linux-ck.install' 'linux-ck.preset' 'utrace-3.2.patch.bz2'
@@ -60,7 +60,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.2.tar.xz"
 "${_bfqpath}/0002-block-cgroups-kconfig-build-bits-for-BFQ-v3r2-3.2.patch"
 "${_bfqpath}/0003-block-introduce-the-BFQ-v3r2-I-O-sched-for-3.2.patch")
 sha256sums=('dd96ed02b53fb5d57762e4b1f573460909de472ca588f81ec6660e4a172e7ba7'
-            '20f633517dc186157618762338a05927f539dd7eba85a6c0a02635d961637ec0'
+            '5b9c07252099ccd335f3b04655fc8f835bf4fc53301261df661879895d7afd02'
             '81aa6ee7b19b70a01f751bd26b79252d43457e3fda57bd35e125b2a20a7115cd'
             '50c2a787acaeccb48d84e4325b325b24942b5d525fa64b266752910cbb197865'
             'a33f764cc88f9f6e97e8e4fea2f5b3776e5c546a575292d1e911fde21183291b'
