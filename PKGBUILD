@@ -43,7 +43,7 @@ true && pkgname=(linux-ck-systemtap linux-ck-systemtap-headers)
 _kernelname=-ck
 _basekernel=3.2
 pkgver=${_basekernel}.2
-pkgrel=3
+pkgrel=1
 arch=('i686' 'x86_64')
 url="http://iamedu.wordpress.com/2012/01/23/arch-linux-and-systemtap/"
 license=('GPL2')
@@ -67,7 +67,7 @@ sha256sums=('dd96ed02b53fb5d57762e4b1f573460909de472ca588f81ec6660e4a172e7ba7'
             'b9d79ca33b0b51ff4f6976b7cd6dbb0b624ebf4fbf440222217f8ffc50445de4'
             '9ccadbe3eb30bb283af3eb869c3a4bdb764628854811cc616a2e02e9ef398705'
             '177f1d6a03a1d5e7a78e8687f223d0a675c43430b9e5dd09e3a038a8b7d2da30'
-            '0ad48d4f77ed70bef3227c7293fe6513cf1840f710020bfabbac3d4bd0cb2589'
+            'e7c5d3d9439625ee24cbd554b4d8238da654580617b515e6ab6d4455fb3a4fbe'
             'c2cf8cc2600502de348f3dc3aae9a3bde5486759db15cb8a93df7aa35bd6e7da'
             '7da2b684fd3d9ebcb9a2523c652b2ae89f46e5904301fb9baf43caf3a1225633'
             '4167d857d2a6348eac9828a177bbb0e597d49fa4e4a1bf61c5933eb5e6b94d9a'
